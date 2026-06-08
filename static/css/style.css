@@ -1,0 +1,600 @@
+@font-face {
+    font-family: "Minion";
+    src: url("../fonts/minion-semibold-italic.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #efe0cb;
+    color: #2b2c2c;
+    font-family: "Montserrat", sans-serif;
+    transition: background-color 0.8s ease;
+}
+
+a {
+    color: #2b2c2c;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo img {
+    width: 260px;
+}
+
+.montserrat-400 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat-300 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.montserrat-200 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* Forms */
+
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.form-input {
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #2b2c2c;
+    border-radius: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: 2px solid #2b2c2c;
+}
+
+.form-group {
+    margin: 25px 0px;
+}
+
+/* End forms */
+
+/* Header Section */
+
+.header {
+    height: 100vh;
+}
+
+.header .header-content {
+    margin: auto;
+    margin-top: 80px;
+    text-align: center;
+    max-width: 900px;
+    width: auto;
+}
+
+.header .header-text {
+    font-family: "Minion", sans-serif;
+    margin-top: 60px;
+    font-size: 40px;
+}
+
+.header .header-cta {
+    letter-spacing: 2px;
+    font-size: 23px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+.header .header-content .header-link {
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 25px;
+    position: relative;
+}
+
+.header .header-content .header-link:hover {
+    cursor: pointer;
+}
+
+.header .header-content .header-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 1px;
+    background: #2b2c2c;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s ease;
+}
+
+.header .header-content .header-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* End Header Section */
+
+/* Contact Section */
+
+.contact-section {
+    padding: 100px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-section .form-group.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.contact-section fieldset {
+    padding: 0;
+    border: none;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section fieldset legend {
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.contact-section fieldset legend:nth-of-type(n + 2) {
+    margin-top: 50px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.radio-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+    accent-color: #2b2c2c;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    accent-color: #2b2c2c;
+    width: 16px;
+    height: 16px;
+}
+
+.send-button {
+    margin-top: 40px;
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    position: relative;
+    font-size: 22px;
+}
+
+.send-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 1px;
+    background: #2b2c2c;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s ease;
+}
+
+.send-button:hover::after {
+    transform: scaleX(1);
+}
+
+/* End Contact Section */
+
+/* Footer Section */
+.site-footer {
+    padding: 60px 0;
+    margin-top: 50px;
+}
+.site-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+.site-footer .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.site-footer .footer-col a,
+.site-footer .footer-col p {
+    text-decoration: none;
+    color: #2b2c2c;
+    margin: 0;
+    font-size: 16px;
+}
+.site-footer .footer-col a:hover {
+    text-decoration: none;
+}
+.site-footer .logo-col img {
+    max-width: 200px;
+}
+.site-footer .copyright {
+    margin-top: 20px !important;
+}
+
+/* Projects and Project Pages */
+.hero-projects {
+    background-color: #b88d80;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #fff;
+}
+.hero-projects .header a,
+.hero-projects .header .menu {
+    color: #fff;
+}
+.hero-projects .hero-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.hero-projects .hero-illustration img {
+    max-width: 600px;
+}
+.hero-projects .hero-text {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+/* Project Detail */
+.project-detail-hero {
+    padding: 80px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.project-detail-hero h1 {
+    font-size: 60px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: 0;
+}
+.project-detail-hero .project-category {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- Project Detail Intro Section --- */
+.project-intro {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.project-intro .project-category {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    text-align: right;
+    margin-bottom: 40px;
+}
+.project-intro .project-title-large {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #2b2c2c;
+    margin-bottom: 80px;
+    font-weight: 400;
+}
+.project-intro .project-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+.project-intro .project-info-block h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: none;
+    margin-bottom: 25px;
+    color: #2b2c2c;
+}
+.project-intro .project-info-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+@media (max-width: 768px) {
+    .project-intro .project-title-large {
+        font-size: 2.5rem;
+    }
+    .project-intro .project-info-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.project-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 5%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 60px 5%;
+}
+.project-nav a {
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: lowercase;
+}
+.project-nav a:hover {
+    text-decoration: none;
+}
+
+/* Setas finas para navegação de projetos */
+.project-nav a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.project-nav .nav-prev-link::before {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 14px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 14' fill='none'%3E%3Cpath d='M40 7H1M1 7L7 1M1 7L7 13' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 14' fill='none'%3E%3Cpath d='M40 7H1M1 7L7 1M1 7L7 13' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+}
+
+.project-nav .nav-next-link::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 14px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 14' fill='none'%3E%3Cpath d='M1 7H39M39 7L33 1M39 7L33 13' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 14' fill='none'%3E%3Cpath d='M1 7H39M39 7L33 1M39 7L33 13' stroke='black' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+    margin-left: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de hover nas setas */
+.project-nav .nav-prev-link:hover::before {
+    transform: translateX(-5px);
+}
+
+.project-nav .nav-next-link:hover::after {
+    transform: translateX(5px);
+}
+
+/* --- Added from Email Requirements --- */
+
+/* Hover Underline Effect */
+.hover-underline {
+    position: relative;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    width: fit-content;
+}
+
+/* Don't apply hover underline to project nav links which have their own effects */
+.hover-underline:not(.nav-prev-link):not(.nav-next-link)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s ease;
+}
+
+.hover-underline:not(.nav-prev-link):not(.nav-next-link):hover::after {
+    transform: scaleX(1);
+}
+
+/* Project Listing Grid (Primeira Pagina - Projetos) */
+.projects-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background-color: #fff;
+}
+.projects-list-grid .project-item:nth-child(3n + 1) {
+    grid-column: span 2;
+}
+
+.project-item .project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: #f4f4f4;
+}
+
+.projects-list-grid .project-item:nth-child(3n + 1) .project-image-wrapper {
+    aspect-ratio: 21/9;
+}
+.projects-list-grid
+    .project-item:not(:nth-child(3n + 1))
+    .project-image-wrapper {
+    aspect-ratio: 4/5;
+}
+.project-item .project-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.project-item .project-image-wrapper .img-hover {
+    opacity: 0;
+}
+.project-item .project-image-wrapper:hover .img-base {
+    opacity: 0;
+}
+.project-item .project-image-wrapper:hover .img-hover {
+    opacity: 1;
+}
+.project-item .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.project-item .project-image-wrapper:hover .project-overlay {
+    opacity: 1;
+}
+.project-item .project-overlay a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 2px;
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+.project-item .project-overlay a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Animations and JS effects */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    transition:
+        background-color 0.8s ease,
+        color 0.8s ease;
+}
+
+body.project-scrolled {
+    color: #888;
+}
+
+body.project-scrolled .project-content-block h3,
+body.project-scrolled .project-content-block p {
+    color: #888;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s ease-out;
+}
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease-out;
+}
+.reveal-zoom.active {
+    opacity: 1;
+    transform: scale(1);
+}

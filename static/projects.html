@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Studio Ser Design | Projetos</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <style>
+            /* Base e Reset para a página */
+            body {
+                background-color: #fcfcfc !important; /* Branco super leve para contraste elegante */
+                color: #1a1a1a;
+                overflow-x: hidden;
+            } /* --- HEADER ADAPTAÇÕES --- */
+            .header {
+                background-color: transparent !important;
+                border-bottom: none !important;
+                padding: 20px 0;
+                width: 100%;
+            }
+            .header .logo img {
+                filter: brightness(0) invert(1);
+            }
+            .header .menu button,
+            .header .menu span,
+            .header .menu svg {
+                color: #ffffff !important;
+            } /* --- HERO SECTION --- */
+            .hero-section {
+                position: relative;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                overflow: hidden;
+            }
+            .hero-bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: url("img/projects/tarih/002-28.png") center center /
+                    cover no-repeat;
+                background-attachment: fixed;
+                z-index: 0;
+            }
+            .hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background: radial-gradient(
+                    circle at center,
+                    rgba(0, 0, 0, 0.3) 0%,
+                    rgba(0, 0, 0, 0.7) 100%
+                );
+            }
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                color: white;
+                padding: 0 20px;
+            }
+            .hero-title {
+                font-size: clamp(3rem, 8vw, 6.5rem);
+                font-weight: 700;
+                letter-spacing: -1px;
+                margin: 0;
+                line-height: 1.1;
+                text-transform: uppercase;
+            }
+            .hero-subtitle {
+                font-size: clamp(1rem, 2vw, 1.25rem);
+                font-weight: 300;
+                letter-spacing: 4px;
+                margin-top: 15px;
+                text-transform: uppercase;
+                opacity: 0.9;
+            } /* --- PORTFOLIO GRID --- */
+            .portfolio-wrapper {
+                padding: 120px 5%;
+                max-width: 1600px;
+                margin: 0 auto;
+                background: #fcfcfc;
+                position: relative;
+                z-index: 2;
+            }
+            .portfolio-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: 5%;
+                row-gap: 120px;
+            }
+            @media (max-width: 991px) {
+                .portfolio-grid {
+                    grid-template-columns: 1fr;
+                    row-gap: 80px;
+                }
+            }
+            @media (min-width: 992px) {
+                .portfolio-grid .project-item:nth-child(3n + 1) {
+                    grid-column: span 2;
+                }
+                .portfolio-grid
+                    .project-item:nth-child(3n + 1)
+                    .project-image-container {
+                    aspect-ratio: 16/9;
+                }
+            } /* --- PROJECT CARD --- */
+            .project-item {
+                text-decoration: none;
+                display: block;
+                color: inherit;
+            }
+            .project-item:hover {
+                text-decoration: none;
+                color: inherit;
+            }
+            .project-image-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                aspect-ratio: 4/5;
+                background-color: #eee;
+            }
+            .project-img-base,
+            .project-img-hover {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition:
+                    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                    opacity 0.6s ease;
+                will-change: transform, opacity;
+            }
+            .project-img-hover {
+                opacity: 0;
+                z-index: 2;
+            }
+            .project-item:hover .project-img-base {
+                transform: scale(1.04);
+            }
+            .project-item:hover .project-img-hover {
+                opacity: 1;
+                transform: scale(1.04);
+            }
+            .project-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.6s ease;
+            }
+            .view-project-btn {
+                background-color: #ffffff;
+                color: #1a1a1a;
+                padding: 14px 28px;
+                font-family: "Montserrat", sans-serif;
+                font-size: 0.85rem;
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                transform: translateY(20px);
+                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            .project-item:hover .project-overlay {
+                opacity: 1;
+            }
+            .project-item:hover .view-project-btn {
+                transform: translateY(0);
+            }
+            .project-meta {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .project-title {
+                font-family: "Montserrat", sans-serif;
+                font-size: 1.4rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                margin: 0;
+                position: relative;
+                display: inline-block;
+            }
+            .project-title::after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 1px;
+                bottom: -2px;
+                left: 0;
+                background-color: #1a1a1a;
+                transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+            .project-item:hover .project-title::after {
+                width: 100%;
+            }
+            .project-category {
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+                color: #666;
+                font-weight: 400;
+                letter-spacing: 0;
+                text-align: left;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+            "
+        >
+            <header class="header">
+                <nav
+                    class="d-flex justify-content-between align-items-center container-fluid p-5"
+                >
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="img/logo.png" alt="Studio Ser Design" />
+                        </a>
+                    </div>
+                    <div class="menu montserrat-400 text-uppercase">
+                        <button
+                            class="btn btn-link border-0 p-0 text-decoration-none d-flex align-items-center gap-2"
+                            type="button"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#mainMenuOffcanvas"
+                            aria-controls="mainMenuOffcanvas"
+                            style="color: inherit"
+                        >
+                            <span
+                                class="d-none d-md-inline"
+                                style="margin-top: 2px"
+                                >Projetos</span
+                            >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="34"
+                                height="34"
+                                fill="currentColor"
+                                class="bi bi-list"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+        </div>
+        <!-- Offcanvas Menu -->
+        <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="mainMenuOffcanvas"
+            aria-labelledby="mainMenuOffcanvasLabel"
+            style="background-color: #efe0cb; color: #2b2c2c"
+        >
+            <div class="offcanvas-header p-5 pb-0">
+                <h5
+                    class="offcanvas-title montserrat-400"
+                    id="mainMenuOffcanvasLabel"
+                >
+                    MENU
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body p-5">
+                <ul
+                    class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-3 montserrat-300"
+                >
+                    <li class="nav-item mb-4 mt-4">
+                        <a
+                            class="nav-link text-uppercase hover-underline"
+                            href="index.html"
+                            >Início</a
+                        >
+                    </li>
+                    <li class="nav-item mb-4">
+                        <a
+                            class="nav-link text-uppercase hover-underline active"
+                            href="projects.html"
+                            >Projetos</a
+                        >
+                    </li>
+                    <li class="nav-item mb-4">
+                        <a
+                            class="nav-link text-uppercase hover-underline"
+                            href="#"
+                            >Sobre</a
+                        >
+                    </li>
+                    <li class="nav-item mb-4">
+                        <a
+                            class="nav-link text-uppercase hover-underline"
+                            href="contact.html"
+                            >Contato</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <section class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Projetos</h1>
+                <div class="hero-subtitle montserrat-300">
+                    Estratégia, Branding e Design
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-wrapper">
+            <div class="portfolio-grid">
+                <a
+                    href="project/atelier-refugio-da-colina.html"
+                    class="project-item"
+                >
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/atelier-refugio-da-colina/free-business-card-among-cactus-mockup.png"
+                            class="project-img-base"
+                            alt="atelier-refugio-da-colina"
+                        />
+                        <img
+                            src="img/projects/atelier-refugio-da-colina/free-business-card-among-cactus-mockup.png"
+                            class="project-img-hover"
+                            alt="atelier-refugio-da-colina"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">ATELIER REFÚGIO DA COLINA</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/tarih.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/tarih/simple-paper-notebook-mockup_.png"
+                            class="project-img-base"
+                            alt="tarih"
+                        />
+                        <img
+                            src="img/projects/tarih/simple-paper-notebook-mockup_.png"
+                            class="project-img-hover"
+                            alt="tarih"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">TARIH</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/aline-cenci.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/aline-cenci/free-pillow-on-chair-mockup2.png"
+                            class="project-img-base"
+                            alt="aline-cenci"
+                        />
+                        <img
+                            src="img/projects/aline-cenci/free-pillow-on-chair-mockup2.png"
+                            class="project-img-hover"
+                            alt="aline-cenci"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">ALINE CENCI</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/pisos-cia.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/pisos-cia/186.png"
+                            class="project-img-base"
+                            alt="pisos-cia"
+                        />
+                        <img
+                            src="img/projects/pisos-cia/macbook-air-psd-mockup.png"
+                            class="project-img-hover"
+                            alt="pisos-cia"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">PISOS & CIA</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/francine-longo.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/francine-longo/paper-coffee-cups-mockup.png"
+                            class="project-img-base"
+                            alt="francine-longo"
+                        />
+                        <img
+                            src="img/projects/francine-longo/paper-coffee-cups-mockup.png"
+                            class="project-img-hover"
+                            alt="francine-longo"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">FRANCINE LONGO</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/estacao-28.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/estacao-28/cards-with-flower-psd-mockup.png"
+                            class="project-img-base"
+                            alt="estacao-28"
+                        />
+                        <img
+                            src="img/projects/estacao-28/cards-with-flower-psd-mockup.png"
+                            class="project-img-hover"
+                            alt="estacao-28"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">ESTAÇÃO 28</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/confere-quality.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/confere-quality/billboard-one-the-building-mockup.png"
+                            class="project-img-base"
+                            alt="confere-quality"
+                        />
+                        <img
+                            src="img/projects/confere-quality/billboard-one-the-building-mockup.png"
+                            class="project-img-hover"
+                            alt="confere-quality"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">CONFERE QUALITY</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/douglas-macari.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/douglas-macari/hard-book-cover-mockup.png"
+                            class="project-img-base"
+                            alt="douglas-macari"
+                        />
+                        <img
+                            src="img/projects/douglas-macari/hard-book-cover-mockup.png"
+                            class="project-img-hover"
+                            alt="douglas-macari"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">DOUGLAS MACARI</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+                <a href="project/imoveis-da-marcela.html" class="project-item">
+                    <div class="project-image-container">
+                        <img
+                            src="img/projects/imoveis-da-marcela/close-up-people-making-home-comfortable.jpg"
+                            class="project-img-base"
+                            alt="imoveis-da-marcela"
+                        />
+                        <img
+                            src="img/projects/imoveis-da-marcela/close-up-people-making-home-comfortable.jpg"
+                            class="project-img-hover"
+                            alt="imoveis-da-marcela"
+                        />
+                        <div class="project-overlay">
+                            <span class="view-project-btn">Ver Projeto</span>
+                        </div>
+                    </div>
+                    <div class="project-meta">
+                        <h2 class="project-title">IMÓVEIS DA MARCELA</h2>
+                        <div class="project-category">
+                            Estratégia de Marca, Naming, Identidade Visual
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <footer class="site-footer">
+            <div class="container-fluid p-5">
+                <div class="footer-grid">
+                    <div class="footer-col logo-col reveal">
+                        <img src="img/logo.png" alt="Studio Ser Design" />
+                    </div>
+                    <div class="footer-col links-col montserrat-400 reveal">
+                        <p>55 54 99699 6091</p>
+                        <a href="projects.html" class="hover-underline"
+                            >Projetos</a
+                        >
+                        <a href="#" class="hover-underline">Sobre</a>
+                        <a href="contact.html" class="hover-underline"
+                            >Contato</a
+                        >
+                    </div>
+                    <div class="footer-col policy-col montserrat-400 reveal">
+                        <a href="#" class="hover-underline"
+                            >Perguntas frequentes</a
+                        >
+                        <a href="#" class="hover-underline"
+                            >Termos e condições</a
+                        >
+                        <a href="#" class="hover-underline"
+                            >Política de privacidade</a
+                        >
+                        <a href="#" class="hover-underline"
+                            >Política de Cookies</a
+                        >
+                        <p class="copyright">&copy; Copyright 2026</p>
+                    </div>
+                    <div class="footer-col social-col montserrat-400 reveal">
+                        <a href="#" class="hover-underline">Linkedin</a>
+                        <a href="#" class="hover-underline">Instagram</a>
+                        <a href="#" class="hover-underline">Behance</a>
+                        <a href="#" class="hover-underline">E-mail</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const reveals = document.querySelectorAll(
+                    ".reveal, .reveal-left, .reveal-right, .reveal-zoom",
+                );
+                const revealOptions = {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                };
+                const revealOnScroll = new IntersectionObserver(function (
+                    entries,
+                    observer,
+                ) {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("active");
+                        }
+                    });
+                }, revealOptions);
+                reveals.forEach((reveal) => {
+                    revealOnScroll.observe(reveal);
+                });
+            });
+        </script>
+    </body>
+</html>

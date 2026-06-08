@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaf Animation Lateral</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #9ea688; /* Cor aproximada do fundo da imagem original */
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            /* SVG ajustado para se parecer mais com as folhas/flores da sua imagem (com linhas internas) */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="%232c3e4c" fill="none"><path d="M50 90 C 35 70 10 50 20 20 C 30 15 45 25 50 45 C 55 25 70 15 80 20 C 90 50 65 70 50 90 Z" stroke-width="1.5"/><path d="M50 90 C 40 70 25 40 32 24" stroke-width="0.8"/><path d="M50 90 C 45 70 35 45 42 30" stroke-width="0.8"/><path d="M50 90 L 50 45" stroke-width="0.8"/><path d="M50 90 C 55 70 65 45 58 30" stroke-width="0.8"/><path d="M50 90 C 60 70 75 40 68 24" stroke-width="0.8"/><path d="M50 90 C 30 75 16 50 23 23" stroke-width="0.8"/><path d="M50 90 C 70 75 84 50 77 23" stroke-width="0.8"/><path d="M50 90 Q 50 100 40 100" stroke-width="1.5"/></g></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* Inicia fora da tela à esquerda */
+            left: -300px;
+            animation: fly-across linear infinite, drift ease-in-out infinite alternate;
+        }
+
+        /* Configuração de cada folha para dar variedade (posição, velocidade, tamanho) */
+        .leaf:nth-child(1) { top: 5%; animation-duration: 20s, 4s; animation-delay: 0s, 0s; transform: scale(1.2); }
+        .leaf:nth-child(2) { top: 25%; animation-duration: 25s, 5s; animation-delay: 3s, 1s; transform: scale(0.9); }
+        .leaf:nth-child(3) { top: 45%; animation-duration: 18s, 4.5s; animation-delay: 7s, 2s; transform: scale(1.4); }
+        .leaf:nth-child(4) { top: 65%; animation-duration: 22s, 5.5s; animation-delay: 1s, 0.5s; transform: scale(1); }
+        .leaf:nth-child(5) { top: 80%; animation-duration: 28s, 4.2s; animation-delay: 5s, 1.5s; transform: scale(1.3); }
+        .leaf:nth-child(6) { top: 15%; animation-duration: 24s, 6s; animation-delay: 9s, 2.5s; transform: scale(0.8); }
+        .leaf:nth-child(7) { top: 55%; animation-duration: 19s, 4.8s; animation-delay: 12s, 3s; transform: scale(1.1); }
+
+        /* Animação principal: voar da esquerda para a direita com rotação de vento */
+        @keyframes fly-across {
+            0% {
+                left: -300px;
+                /* Começa deitada apontando pra direita */
+                transform: rotate(80deg);
+            }
+            100% {
+                left: 110vw;
+                /* Gira levemente durante o percurso */
+                transform: rotate(110deg);
+            }
+        }
+
+        /* Animação secundária: subindo e descendo com o vento */
+        @keyframes drift {
+            0% {
+                margin-top: -60px;
+            }
+            100% {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+    <div class="leaf"></div>
+</body>
+</html>
