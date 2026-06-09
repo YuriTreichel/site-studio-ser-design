@@ -49,7 +49,7 @@
         }
 
         .brand-icon-box img {
-            max-width: 180px;
+            max-width: 250px;
             height: auto;
             /* Se as imagens forem coloridas, podemos forçar um visual de linha se necessário */
             /* filter: grayscale(1) contrast(1.2); */
@@ -72,13 +72,13 @@
         }
 
         .brand-sample-manuscript {
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Playball', cursive;
             font-size: 2.5rem;
             text-align: center;
         }
 
         .brand-sample-serif {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Amiri', serif;
             font-size: 1.6rem;
             font-weight: 500;
             letter-spacing: 3px;
@@ -158,7 +158,7 @@
             <div class="brand-concept-row">
                 <div class="brand-icon-box">
                     <!-- Usando a imagem 017-10 como placeholder para a casa -->
-                    <img src="{{ asset('img/projects/ATELIER REFÚGIO DA COLINA/017-10.png') }}" alt="Simbolo Madeira" style="filter: grayscale(1) brightness(0.2) contrast(1.5); opacity: 0.8;">
+                    <img src="{{ asset('img/projects/ATELIER REFÚGIO DA COLINA/estrutura.png') }}" alt="Simbolo Madeira" style="filter: grayscale(1) brightness(0.2) contrast(1.5); opacity: 0.8;">
                 </div>
                 <div class="brand-info-box">
                     <div class="brand-text-label">Madeira</div>
@@ -176,7 +176,7 @@
             <div class="brand-concept-row">
                 <div class="brand-icon-box">
                     <!-- Mesmo placeholder com foco diferente se fosse possível, ou apenas mantendo a estrutura -->
-                    <img src="{{ asset('img/projects/ATELIER REFÚGIO DA COLINA/017-10.png') }}" alt="Simbolo Cortina" style="filter: grayscale(1) brightness(0.2) contrast(1.5); opacity: 0.8;">
+                    <img src="{{ asset('img/projects/ATELIER REFÚGIO DA COLINA/cortinas-plantas.png') }}" alt="Simbolo Cortina" style="filter: grayscale(1) brightness(0.2) contrast(1.5); opacity: 0.8;">
                 </div>
                 <div class="brand-info-box">
                     <div class="brand-text-label">Cortina | Plantas</div>
@@ -193,10 +193,7 @@
 
             <div class="brand-concept-row">
                 <div class="brand-icon-box">
-                    <!-- Placeholder genérico para montanhas ou imagem similar -->
-                    <svg viewBox="0 0 200 100" style="width: 180px; fill: none; stroke: #1a1a1a; stroke-width: 1.5;">
-                        <path d="M10 90 Q 60 10 110 90 T 210 90" />
-                    </svg>
+                    <img src="{{ asset('img/projects/ATELIER REFÚGIO DA COLINA/colinas.png') }}" alt="Simbolo Colinas" style="filter: grayscale(1) brightness(0.2) contrast(1.5); opacity: 0.8;">
                 </div>
                 <div class="brand-info-box">
                     <div class="brand-text-label">Vales | Colina</div>
