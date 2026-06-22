@@ -37,17 +37,6 @@
             color: #ffffff !important;
         }
 
-        .header nav {
-            background-color: rgba(0, 0, 0, 0.2) !important;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 100px;
-            margin: 20px auto;
-            width: calc(100% - 40px);
-            padding: 15px 40px !important;
-        }
-
         .project-intro {
             padding-top: 100px;
             padding-bottom: 100px;
@@ -251,13 +240,42 @@
                 height: 400px;
             }
         }
+
+        /* Seção de Citação / Frase */
+        .project-quote-container {
+            margin-top: 180px;
+            margin-bottom: 120px;
+        }
+
+        .project-quote-text {
+            font-size: 3.2rem;
+            color: #2b2c2c;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+
+        .project-quote-text span {
+            font-family: 'Minion', serif;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .project-quote-container {
+                margin-top: 90px;
+                margin-bottom: 60px;
+            }
+            .project-quote-text {
+                font-size: 2.2rem;
+                line-height: 1.4;
+            }
+        }
     </style>
 
     <section class="text-white d-block position-relative" style="min-height: 100vh; overflow: hidden;">
         <!-- Vídeo de Fundo -->
         <video autoplay loop muted playsinline 
             style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 0; transform: translateX(-50%) translateY(-50%); object-fit: cover;">
-            <source src="../../videos/VÍDEO CONCEITO IDENTIDADE VISUAL ALINE CENCI.mp4" type="video/mp4">
+            <source src="../../videos/aline-cenci-conceito.mp4" type="video/mp4">
         </video>
 
 
@@ -360,6 +378,13 @@
         <div id="pdf-horizontal-scroller" class="pdf-horizontal-container">
             
         </div>
+    </section>
+
+    
+    <section class="project-quote-container container text-center">
+        <h2 class="project-quote-text montserrat-300 reveal">
+            Florescer exige <span>passar</span> por <br> todas as <span>estações</span>.
+        </h2>
     </section>
 
     

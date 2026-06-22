@@ -20,10 +20,140 @@
         .header .menu svg {
             color: #ffffff !important;
         }
+
+        /* Brochure Section Styles */
+        .brochure-section {
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+        .quem-somos-panel {
+            background-color: #0b1a30;
+            color: #ffffff;
+            padding: 4rem 3rem;
+        }
+        .quem-somos-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 1rem;
+        }
+        .quem-somos-text p {
+            font-weight: 300;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .quem-somos-text p:last-child {
+            margin-bottom: 0;
+        }
+        .pillars-container {
+            display: flex;
+            min-height: 450px;
+        }
+        .pillar-card {
+            flex: 1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 2.5rem;
+            text-decoration: none;
+            overflow: hidden;
+        }
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 26, 48, 0.1) 0%, rgba(11, 26, 48, 0.8) 100%);
+            transition: opacity 0.3s ease;
+        }
+        .pillar-card:hover::before {
+            background: linear-gradient(to bottom, rgba(11, 26, 48, 0.2) 0%, rgba(11, 26, 48, 0.95) 100%);
+        }
+        .pillar-text-wrapper {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+        .pillar-card:hover .pillar-text-wrapper {
+            transform: translateY(-5px);
+        }
+        .pillar-text-wrapper span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 0.2rem;
+        }
+        .pillar-text-wrapper span.lang-en {
+            font-weight: 300;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        .servicos-panel {
+            background-color: #272c33;
+            color: #ffffff;
+            padding: 4rem 3rem;
+        }
+        .servicos-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 1rem;
+        }
+        .service-item {
+            margin-bottom: 2.5rem;
+        }
+        .service-item:last-child {
+            margin-bottom: 0;
+        }
+        .service-item-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 0.4rem;
+        }
+        .service-item-desc {
+            font-weight: 300;
+            font-size: 0.8rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+            opacity: 0.85;
+        }
+        .service-item-desc:last-child {
+            margin-bottom: 0;
+        }
+        @media (max-width: 991.98px) {
+            .pillars-container {
+                min-height: 350px;
+            }
+        }
     </style>
 
     <section class="text-white d-block position-relative"
-        style="background: url('{{ asset($project['cover']) }}') center center / cover no-repeat; min-height: 100vh;">
+        style="background: url('{{ asset($project['cover']) }}') center center / cover no-repeat; min-height: 100vh; background-attachment: fixed;">
         <!-- Escurecimento -->
         <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); z-index: 1;">
         </div>
@@ -67,6 +197,98 @@
         @endforeach
     </section>
 
+    <!-- Brochure Section Layout -->
+    <section class="brochure-section container-fluid px-0">
+        <div class="row g-0">
+            <!-- Left Side: Quem Somos + Pillars (Integridade, Segurança, Confiança) -->
+            <div class="col-xl-6 d-flex flex-column flex-md-row">
+                <div class="quem-somos-panel flex-grow-1 d-flex flex-column" style="flex: 1.2;">
+                    <h2 class="quem-somos-title text-uppercase">Quem Somos | Quiénes Somos | Who We Are</h2>
+                    <div class="quem-somos-text">
+                        <p>Atuamos há mais de 18 anos na realização de inspeções de qualidade em fábricas, com sede em Garibaldi (RS) e operações em diversos estados do Brasil. Com base na confiança, seriedade e comprometimento, garantimos que todos os serviços sejam executados conforme o acordado. Nossas inspeções seguem normas técnicas rigorosas, assegurando a qualidade do produto final, o que traz segurança ao comprador e ao cliente, além de auxiliar as fábricas no controle de seus processos, evitando retrabalho, custos extras e desperdício de tempo.</p>
+                        <p>Llevamos más de 18 años realizando inspecciones de calidad en fábricas, con sede en Garibaldi (RS) y operaciones en varios estados de Brasil. Basados en la confianza, la seriedad y el compromiso, garantizamos que todos los servicios se ejecuten según lo acordado. Nuestras inspecciones siguen estrictas normas técnicas, asegurando la calidad del producto final, lo que brinda seguridad al comprador y al cliente, además de ayudar a las fábricas en el control de sus procesos, evitando retrabajos, costos adicionales y pérdida de tempo.</p>
+                        <p>We have been performing quality inspections in factories for over 18 years, with headquarters in Garibaldi (RS) and operations in several states across Brazil. Based on trust, integrity and commitment, we ensure that all services are carried out as agreed. Our inspections follow strict technical standards, ensuring the quality of the final product, which provides security for buyers and customers, while also helping factories control their processes, avoiding rework, extra costs and wasted time.</p>
+                    </div>
+                </div>
+                <div class="pillars-container" style="flex: 1;">
+                    <!-- Integridade -->
+                    <div class="pillar-card" style="background-image: url('{{ asset('img/projects/CONFERE QUALITY/integrity.png') }}')">
+                        <div class="pillar-text-wrapper">
+                            <div>Integridade</div>
+                            <span>Integridad</span>
+                            <span class="lang-en">Integrity</span>
+                        </div>
+                    </div>
+                    <!-- Segurança -->
+                    <div class="pillar-card" style="background-image: url('{{ asset('img/projects/CONFERE QUALITY/safety.png') }}')">
+                        <div class="pillar-text-wrapper">
+                            <div>Segurança</div>
+                            <span>Seguridad</span>
+                            <span class="lang-en">Safety</span>
+                        </div>
+                    </div>
+                    <!-- Confiança -->
+                    <div class="pillar-card" style="background-image: url('{{ asset('img/projects/CONFERE QUALITY/trust.png') }}')">
+                        <div class="pillar-text-wrapper">
+                            <div>Confiança</div>
+                            <span>Confianza</span>
+                            <span class="lang-en">Trust</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Serviços -->
+            <div class="col-xl-6 servicos-panel">
+                <h2 class="servicos-title text-uppercase">Serviços | Servicios | Services</h2>
+                <div class="row">
+                    <!-- Column 1 -->
+                    <div class="col-md-6">
+                        <!-- Auditorias de Fábrica -->
+                        <div class="service-item">
+                            <h3 class="service-item-title text-uppercase">Auditorias de Fábrica | Auditorías de Fábrica | Factory Audits</h3>
+                            <p class="service-item-desc">As avaliações de fábrica são realizadas para fornecer uma impressão concreta sobre o seu fornecedor, verificando se poderá satisfazer às suas necessidades, com compromisso com a qualidade e a entrega dos produtos.</p>
+                            <p class="service-item-desc">Las evaluaciones de fábrica se realizan para proporcionar una impresión concreta sobre su proveedor, verificando si podrá satisfacer sus necesidades, con compromiso con la calidad y la entrega de los productos.</p>
+                            <p class="service-item-desc">Factory evaluations are conducted to get a concrete impression of your supplier, verifying if they will be able to meet your needs, quality commitments and product deliveries.</p>
+                        </div>
+                        <!-- Inspeção de Container -->
+                        <div class="service-item">
+                            <h3 class="service-item-title text-uppercase">Inspeção de Container | Inspección en Container | Container Inspection</h3>
+                            <p class="service-item-desc">Oferecemos inspeção de container em portos ou fábricas, revisando e acompanhando o processo de estufagem até o fechamento de portas.</p>
+                            <p class="service-item-desc">Ofrecemos inspección de contenedores en puertos o fábricas, revisando y supervisando el proceso de estiba hasta el cierre de las puertas.</p>
+                            <p class="service-item-desc">We offer container inspection at ports or factories, reviewing and monitoring the stuffing process until the doors are closed.</p>
+                        </div>
+                        <!-- Inspeção de Móveis -->
+                        <div class="service-item">
+                            <h3 class="service-item-title text-uppercase">Inspeção de Móveis | Inspección de Muebles | Furniture Inspection</h3>
+                            <p class="service-item-desc">Revisão de qualidade de produto, embalagens e requerimentos especiais.</p>
+                            <p class="service-item-desc">Revisión de calidad de productos, embalajes y requisitos especiales.</p>
+                            <p class="service-item-desc">Product quality, packaging and special requirements review.</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="col-md-6">
+                        <!-- Inspeção de Revestimentos Cerâmicos -->
+                        <div class="service-item">
+                            <h3 class="service-item-title text-uppercase">Inspeção de Revestimentos Cerâmicos | Inspección de Revestimiento Cerámico | Ceramic Tiles Inspection</h3>
+                            <p class="service-item-desc">Conformidade de produto conforme normas NBR e ISO 13006 anexo "A, G e U". Qualidade de produto de acordo com as normas NBR, embalagens e requerimentos especiais.</p>
+                            <p class="service-item-desc">Conformidad del producto conforme a las normas NBR y al anexo "A, G y U" de la ISO 13006. Calidad del producto según las normas NBR, embalajes y requisitos especiales.</p>
+                            <p class="service-item-desc">Product compliance according to NBR standards and ISO 13006 annexes "A, G and U". Product quality in accordance with NBR standards, packaging and special requirements.</p>
+                        </div>
+                        <!-- Inspeção de Compensado -->
+                        <div class="service-item">
+                            <h3 class="service-item-title text-uppercase">Inspeção de Compensado | Inspección de Compensado | Plywood Inspection</h3>
+                            <p class="service-item-desc">A inspeção segue critérios e especificações, verificando se o produto corresponde a classificação e a qualidade esperadas, realizando provas visuais da superfície, verificação dimensional, medição de umidade e teste de colagem das camadas.</p>
+                            <p class="service-item-desc">La inspección sigue criterios y especificaciones, verificando si el producto corresponde a la clasificación y calidad esperadas, realizando pruebas visuales de la superficie, verificación dimensional, medición de humedad y prueba de adhesión de las capas.</p>
+                            <p class="service-item-desc">The inspection follows criteria and specifications, verifying whether the product meets the expected classification and quality by performing visual surface tests, dimensional checks, moisture measurement and layer bonding tests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <nav class="project-nav montserrat-400">
         <a href="{{ $project['prev_slug'] ? url('/projeto/' . $project['prev_slug']) : '#' }}" class="hover-underline nav-prev-link">projeto anterior</a>
         <a href="{{ url('/projetos') }}" class="hover-underline nav-all-link">ver todos</a>
@@ -86,4 +308,5 @@
     </script>
 
 @endsection
+
 

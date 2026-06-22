@@ -184,6 +184,41 @@ Route::get('/projeto/{slug}', function ($slug) {
         ];
     }
 
+    // Custom order for TARIH
+    if ($projectName === 'TARIH') {
+        $images = [
+            'img/projects/TARIH/002-28.png',
+            'img/projects/TARIH/Free MacBook Pro with Doggy on Table Mockup2.png',
+            'img/projects/TARIH/Label on Brick Wall Mockup.png',
+            'img/projects/TARIH/Simple Paper Notebook Mockup_.png',
+            'img/projects/TARIH/Two Posters on Wall Mockup.png',
+            'img/projects/TARIH/Notebook Mockup5.png',
+            'img/projects/TARIH/Free Outdoor Business Card Mockup2.png',
+            'img/projects/TARIH/String Envelope Mockup2.png',
+            'img/projects/TARIH/Free Outdoor Business Card Mockup4.png',
+        ];
+    }
+
+    // Custom order for CONFERE QUALITY
+    if ($projectName === 'CONFERE QUALITY') {
+        $images = [
+            'img/projects/CONFERE QUALITY/hero.jpg',
+            'img/projects/CONFERE QUALITY/00-Construction Helmet Mockup.png',
+            'img/projects/CONFERE QUALITY/Billboard one the Building Mockup.png',
+            'img/projects/CONFERE QUALITY/Hanging ID Card Mockup4.png',
+        ];
+    }
+
+    // Custom order for ESTAÇÃO 28
+    if ($projectName === 'ESTAÇÃO 28') {
+        $images = [
+            'img/projects/ESTAÇÃO 28/Tag Mockup.png',
+            'img/projects/ESTAÇÃO 28/Cards with Flower PSD Mockup.png',
+            'img/projects/ESTAÇÃO 28/000-15.png',
+            'img/projects/ESTAÇÃO 28/0-16.png',
+        ];
+    }
+
     $project = [
         'name' => $projectName,
         'category' => $projectName === 'ATELIER REFÚGIO DA COLINA' ? 'Identidade Visual' : 'Estratégia, Naming, Marca',

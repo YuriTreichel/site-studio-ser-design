@@ -20,6 +20,41 @@
         .header .menu svg {
             color: #ffffff !important;
         }
+
+        /* Tarih Gallery Grid */
+        .tarih-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tarih-gallery-grid .gallery-item {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            margin-bottom: 0 !important;
+        }
+
+        /* Pattern: 1, 2, 1, 2... 1st child spans 2 columns, then 4th child, 7th child, etc. */
+        .tarih-gallery-grid .gallery-item:nth-child(3n + 1) {
+            grid-column: span 2;
+            aspect-ratio: auto;
+        }
+
+        @media (max-width: 768px) {
+            .tarih-gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .tarih-gallery-grid .gallery-item {
+                aspect-ratio: auto;
+            }
+            .tarih-gallery-grid .gallery-item:nth-child(3n + 1) {
+                grid-column: span 1;
+            }
+        }
     </style>
 
     <section class="text-white d-block position-relative"
@@ -56,10 +91,12 @@
     </section>
 
     <section class="project-gallery container pb-5 text-center">
-        @foreach (array_slice($project['images'], 1) as $img)
-            <img src="{{ asset($img) }}" alt="{{ $project['name'] }} gallery image"
-                class="img-fluid mb-5 w-100 reveal-zoom" style="max-width: 1200px; border-radius: 8px;">
-        @endforeach
+        <div class="tarih-gallery-grid">
+            @foreach (array_slice($project['images'], 1) as $img)
+                <img src="{{ asset($img) }}" alt="{{ $project['name'] }} gallery image"
+                    class="gallery-item img-fluid reveal-zoom" style="border-radius: 8px;">
+            @endforeach
+        </div>
     </section>
 
     <nav class="project-nav montserrat-400">

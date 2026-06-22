@@ -27,6 +27,7 @@
             position: relative;
             display: flex;
             align-items: center;
+            background-attachment: fixed;
         }
 
         .bg-pisos-yellow {
