@@ -232,6 +232,7 @@
         }
 
         .project-quote-text {
+            font-family: 'Tenor Sans', sans-serif;
             font-size: 3.2rem;
             color: #2b2c2c;
             line-height: 1.6;
@@ -239,8 +240,10 @@
         }
 
         .project-quote-text span {
-            font-family: 'Minion', serif;
-            font-style: italic;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.25em;
+            font-style: normal;
+            text-transform: none;
         }
 
         @media (max-width: 768px) {
@@ -322,7 +325,7 @@
 
     {{-- Seção de Citação / Frase --}}
     <section class="project-quote-container container text-center">
-        <h2 class="project-quote-text montserrat-300 reveal">
+        <h2 class="project-quote-text reveal">
             Florescer exige <span>passar</span> por <br> todas as <span>estações</span>.
         </h2>
     </section>

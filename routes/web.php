@@ -96,12 +96,23 @@ Route::get('/projetos', function () {
             $hover = count($imageFiles) > 1 ? 'img/projects/' . $name . '/' . $imageFiles[$hoverIndex]->getFilename() : $cover;
         }
 
+        $category = 'Estratégia de Marca, Naming, Identidade Visual';
+        if ($name === 'ATELIER REFÚGIO DA COLINA') {
+            $category = 'Identidade Visual';
+        } elseif ($name === 'CONFERE QUALITY') {
+            $category = 'Estratégia, Identidade Visual, Website, Negócio';
+        } elseif ($name === 'IMÓVEIS DA MARCELA') {
+            $category = 'ESTRATÉGIA DE MARCA';
+        } elseif ($name === 'FRANCINE LONGO') {
+            $category = 'IDENTIDADE VISUAL';
+        }
+
         $projects[] = [
             'name' => $name,
             'slug' => Str::slug($name),
             'cover' => $cover,
             'hover' => $hover,
-            'category' => $name === 'ATELIER REFÚGIO DA COLINA' ? 'Identidade Visual' : 'Estratégia de Marca, Naming, Identidade Visual'
+            'category' => $category
         ];
     }
     return view('projects', ['projects' => $projects]);
@@ -196,6 +207,7 @@ Route::get('/projeto/{slug}', function ($slug) {
             'img/projects/TARIH/Free Outdoor Business Card Mockup2.png',
             'img/projects/TARIH/String Envelope Mockup2.png',
             'img/projects/TARIH/Free Outdoor Business Card Mockup4.png',
+            'img/projects/TARIH/Backpack Mockup4.png',
         ];
     }
 
@@ -204,8 +216,8 @@ Route::get('/projeto/{slug}', function ($slug) {
         $images = [
             'img/projects/CONFERE QUALITY/hero.jpg',
             'img/projects/CONFERE QUALITY/00-Construction Helmet Mockup.png',
-            'img/projects/CONFERE QUALITY/Billboard one the Building Mockup.png',
             'img/projects/CONFERE QUALITY/Hanging ID Card Mockup4.png',
+            'img/projects/CONFERE QUALITY/Billboard one the Building Mockup.png',
         ];
     }
 
@@ -219,9 +231,20 @@ Route::get('/projeto/{slug}', function ($slug) {
         ];
     }
 
+    $category = 'Estratégia, Naming, Marca';
+    if ($projectName === 'ATELIER REFÚGIO DA COLINA') {
+        $category = 'Identidade Visual';
+    } elseif ($projectName === 'CONFERE QUALITY') {
+        $category = 'Estratégia, Identidade Visual, Website, Negócio';
+    } elseif ($projectName === 'IMÓVEIS DA MARCELA') {
+        $category = 'ESTRATÉGIA DE MARCA';
+    } elseif ($projectName === 'FRANCINE LONGO') {
+        $category = 'IDENTIDADE VISUAL';
+    }
+
     $project = [
         'name' => $projectName,
-        'category' => $projectName === 'ATELIER REFÚGIO DA COLINA' ? 'Identidade Visual' : 'Estratégia, Naming, Marca',
+        'category' => $category,
         'desafio' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diamLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
         'solucao' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diamLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
         'images' => $images,

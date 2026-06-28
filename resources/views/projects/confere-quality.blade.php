@@ -150,6 +150,119 @@
                 min-height: 350px;
             }
         }
+
+        /* Folder Gallery Section */
+        .folder-gallery-section {
+            margin-top: 6rem;
+            margin-bottom: 6rem;
+        }
+        .folder-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+        @media (max-width: 991.98px) {
+            .folder-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 575.98px) {
+            .folder-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .folder-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .folder-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            flex-grow: 1;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .folder-item:hover img {
+            transform: scale(1.05);
+        }
+        .folder-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 26, 48, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .folder-item:hover .folder-overlay {
+            opacity: 1;
+        }
+        .folder-overlay svg {
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        .folder-item:hover .folder-overlay svg {
+            transform: scale(1);
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .lightbox-modal.show .lightbox-content {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            user-select: none;
+            line-height: 1;
+        }
+        .lightbox-close:hover {
+            color: #eaeaea;
+        }
     </style>
 
     <section class="text-white d-block position-relative"
@@ -190,11 +303,106 @@
         </div>
     </section>
 
-    <section class="project-gallery container pb-5 text-center">
-        @foreach (array_slice($project['images'], 1) as $img)
-            <img src="{{ asset($img) }}" alt="{{ $project['name'] }} gallery image"
-                class="img-fluid mb-5 w-100 reveal-zoom" style="max-width: 1200px; border-radius: 8px;">
-        @endforeach
+    <!-- Full-width Image -->
+    <section class="container-fluid p-0 mb-5 reveal-zoom" style="margin-top: 7rem;">
+        <img src="{{ asset('img/projects/CONFERE QUALITY/2-03.png') }}" class="img-fluid w-100" alt="CONFERE QUALITY banner">
+    </section>
+
+    <!-- Linhas Guias Image -->
+    <section class="container text-center mb-5 pb-5 reveal-zoom" style="margin-top: 7rem;">
+        <img src="{{ asset('img/projects/CONFERE QUALITY/linhas-guias.png') }}" class="img-fluid" style="max-width: 1200px; border-radius: 8px;" alt="CONFERE QUALITY linhas guias">
+    </section>
+
+    <!-- Colors Section -->
+    <section class="container mb-5 pb-5 reveal-zoom" style="margin-top: 7rem; font-family: 'Montserrat', sans-serif;">
+        <style>
+            .color-palette-container {
+                width: 100%;
+                max-width: 450px;
+                height: 500px;
+                border: 1px solid #eaeaea;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                border-radius: 8px;
+                overflow: hidden;
+                display: flex;
+            }
+            .color-bar {
+                flex: 1;
+                transition: flex 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+                cursor: pointer;
+            }
+            .color-bar:hover {
+                flex: 1.5;
+            }
+        </style>
+        <div class="row align-items-center">
+            <!-- Palette Block -->
+            <div class="col-md-6 mb-5 mb-md-0 d-flex justify-content-center">
+                <div class="color-palette-container">
+                    <div class="color-bar" style="background-color: #020413;" title="#020413"></div>
+                    <div class="color-bar" style="background-color: #11233d;" title="#11233d"></div>
+                    <div class="color-bar" style="background-color: #324043;" title="#324043"></div>
+                    <div class="color-bar" style="background-color: #7d8c92;" title="#7d8c92"></div>
+                    <div class="color-bar" style="background-color: #ffffff; border-left: 1px solid #f0f0f0;" title="#ffffff"></div>
+                </div>
+            </div>
+            <!-- Descriptions -->
+            <div class="col-md-6 ps-md-5">
+                <div class="color-desc-item mb-4">
+                    <p class="montserrat-300" style="font-size: 0.95rem; line-height: 1.6; color: #2b2c2c;">
+                        <strong class="montserrat-700" style="color: #0b1a30; letter-spacing: 0.5px;">AZUL:</strong> simboliza confiança, responsabilidade e seriedade, uma cor associada à integridade.
+                    </p>
+                </div>
+                <div class="color-desc-item mb-4">
+                    <p class="montserrat-300" style="font-size: 0.95rem; line-height: 1.6; color: #2b2c2c;">
+                        <strong class="montserrat-700" style="color: #0b1a30; letter-spacing: 0.5px;">TONS DE AZUL ESCURO:</strong> transmitem segurança e confiabilidade, e especialmente autoridade.
+                    </p>
+                </div>
+                <div class="color-desc-item mb-4">
+                    <p class="montserrat-300" style="font-size: 0.95rem; line-height: 1.6; color: #2b2c2c;">
+                        <strong class="montserrat-700" style="color: #0b1a30; letter-spacing: 0.5px;">VERDE:</strong> representa equilíbrio, crescimento e segurança.
+                    </p>
+                </div>
+                <div class="color-desc-item mb-4">
+                    <p class="montserrat-300" style="font-size: 0.95rem; line-height: 1.6; color: #2b2c2c;">
+                        <strong class="montserrat-700" style="color: #0b1a30; letter-spacing: 0.5px;">CINZA:</strong> simboliza neutralidade, imparcialidade, profissionalismo, equilíbrio e confiança.
+                    </p>
+                </div>
+                <div class="color-desc-item mb-4">
+                    <p class="montserrat-300" style="font-size: 0.95rem; line-height: 1.6; color: #2b2c2c;">
+                        <strong class="montserrat-700" style="color: #0b1a30; letter-spacing: 0.5px;">BRANCO:</strong> representa clareza, transparência, honestidade aspectos fundamentais da integridade, que reforça a confiança.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-gallery container pb-5" style="max-width: 1200px; margin: 0 auto;">
+        @if(count($project['images']) >= 4)
+            <div class="row g-4 mb-4">
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <img src="{{ asset($project['images'][1]) }}" alt="{{ $project['name'] }} gallery image"
+                        class="img-fluid w-100 reveal-zoom" style="border-radius: 8px; object-fit: cover;">
+                </div>
+                <div class="col-md-6 d-flex align-items-stretch">
+                    <img src="{{ asset($project['images'][2]) }}" alt="{{ $project['name'] }} gallery image"
+                        class="img-fluid w-100 reveal-zoom" style="border-radius: 8px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img src="{{ asset($project['images'][3]) }}" alt="{{ $project['name'] }} gallery image"
+                        class="img-fluid w-100 reveal-zoom" style="border-radius: 8px;">
+                </div>
+            </div>
+        @else
+            <div class="text-center">
+                @foreach (array_slice($project['images'], 1) as $img)
+                    <img src="{{ asset($img) }}" alt="{{ $project['name'] }} gallery image"
+                        class="img-fluid mb-5 w-100 reveal-zoom" style="max-width: 1200px; border-radius: 8px;">
+                @endforeach
+            </div>
+        @endif
     </section>
 
     <!-- Brochure Section Layout -->
@@ -289,6 +497,50 @@
         </div>
     </section>
 
+    <!-- Folder Section -->
+    <section class="folder-gallery-section container-fluid px-0 reveal-zoom">
+        <div class="folder-grid">
+            <div class="folder-item" onclick="openLightbox(this)">
+                <img src="{{ asset('img/projects/CONFERE QUALITY/folder_1.png') }}" alt="Folder Página 1">
+                <div class="folder-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637zM10.5 7.5v6m3-3h-6" />
+                    </svg>
+                </div>
+            </div>
+            <div class="folder-item" onclick="openLightbox(this)">
+                <img src="{{ asset('img/projects/CONFERE QUALITY/folder_2.png') }}" alt="Folder Página 2">
+                <div class="folder-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637zM10.5 7.5v6m3-3h-6" />
+                    </svg>
+                </div>
+            </div>
+            <div class="folder-item" onclick="openLightbox(this)">
+                <img src="{{ asset('img/projects/CONFERE QUALITY/folder_3.png') }}" alt="Folder Página 3">
+                <div class="folder-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637zM10.5 7.5v6m3-3h-6" />
+                    </svg>
+                </div>
+            </div>
+            <div class="folder-item" onclick="openLightbox(this)">
+                <img src="{{ asset('img/projects/CONFERE QUALITY/folder_4.png') }}" alt="Folder Página 4">
+                <div class="folder-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.637 10.637zM10.5 7.5v6m3-3h-6" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Folder Ampliado">
+    </div>
+
     <nav class="project-nav montserrat-400">
         <a href="{{ $project['prev_slug'] ? url('/projeto/' . $project['prev_slug']) : '#' }}" class="hover-underline nav-prev-link">projeto anterior</a>
         <a href="{{ url('/projetos') }}" class="hover-underline nav-all-link">ver todos</a>
@@ -305,6 +557,25 @@
                 document.body.classList.remove('project-scrolled');
             }
         });
+
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').getAttribute('src');
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('lightboxImg');
+            modalImg.src = imgSrc;
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        }
+
+        function closeLightbox(event) {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
     </script>
 
 @endsection
